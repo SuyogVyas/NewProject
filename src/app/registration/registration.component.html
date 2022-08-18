@@ -1,0 +1,28 @@
+
+
+<div class="container" id="container">
+<div class="form-container sign-in-container">
+    <form action="#" #registrationForm = "ngForm" (ngSubmit) = "registerUser(registrationForm)">
+        <h1>Create Account</h1>
+        
+        <span>or use your email for registration</span>
+       
+        <input type="email" name = "email" placeholder="Email" email required #emailControl="ngModel" [(ngModel)] = "newEmail" />
+        <div *ngIf = "isEmailValid == true"><span>Email is Already Taken</span></div>
+        <div *ngIf = "isEmailValid == false"></div>
+        <div *ngIf="emailControl.touched == true && emailControl.invalid"><span style = "color: red;" >
+            Email is <strong>required</strong>
+        </span></div>
+        <input type="password" name = "password" placeholder="Password" required #passwordControl="ngModel" [(ngModel)] = "newPassword" />
+       <div *ngIf="passwordControl.touched == true && passwordControl.value == ''"> <span style = "color: red;" >
+            password is <strong>required</strong>
+       </span></div>
+        <button (click) = "checkIfEmailAlreadyExists()">Sign Up</button><br>
+        
+        <span ><a href="" style="color: black;" (click) = "backToSignIn()">Back To Sign In</a></span><br>
+        
+    </form>
+</div>
+
+
+

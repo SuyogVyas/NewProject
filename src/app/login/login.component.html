@@ -1,0 +1,52 @@
+<div *ngIf="isLoggedIn == false && isSignup == false">
+	<h2>Welcome To GL Portal</h2>
+	<div class="container" id="container">
+
+		<div class="form-container sign-in-container">
+			<form  #personForm= "ngForm" (ngSubmit) = "saveUser(personForm)">
+				<h1>Sign in</h1>
+
+				<span>or use your account</span>
+				<input type="email" required placeholder="Email" name="useremail" email #emailControl = "ngModel" [(ngModel)]="email" />
+				<div *ngIf="emailControl.touched == true && emailControl.invalid"><span style = "color: red;" >
+					Email is <strong>required</strong>
+				</span></div>
+				
+				<input type="password" required placeholder="Password" name="userpassword" #passwordControl = "ngModel" [(ngModel)]="password" />
+				<div *ngIf="passwordControl.value=='' && passwordControl.touched == true "><span style = "color: red;" >
+					password is <strong>required</strong>
+				</span></div>
+				<a href="#">Forgot your password?</a>
+				<button (click)="validate()">Sign In</button>
+			</form>
+		</div>
+		<div class="overlay-container">
+			<div class="overlay">
+				<div class="overlay-panel overlay-right">
+					<h1>Hello, Friend!</h1>
+					<p>Enter your personal details and start journey with us</p>
+					<button class="ghost" id="signUp" (click) = "openSignUp()">Sign Up</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div *ngIf="isLoggedIn == true">
+	<app-dashboard></app-dashboard>
+</div>
+
+
+<div *ngIf = "isLoggedIn == false && isSignup == true">
+	<app-registration></app-registration>
+</div>
+
+
+<footer>
+	<p>
+		Created with <i class="fa fa-heart"></i> by
+		<a target="_blank" href="https://florin-pop.com">Florin Pop</a>
+		- Read how I created this and how you can join the challenge
+		<a target="_blank" href="https://www.florin-pop.com/blog/2019/03/double-slider-sign-in-up-form/">here</a>.
+	</p>
+</footer>
