@@ -9,6 +9,7 @@ export class LoginService {
     username$:any = new ReplaySubject()
     isUserLoggedIn$:any = new Subject()
     isUserLoggedOut$:any = new Subject()
+    isRegister$:any = new Subject();
     users: any[] = [
         {username:'admin', email: "admin@gmail.com", password: "admin" },
         {username:'admin1', email: "admin1@gmail.com", password: "admin1" },

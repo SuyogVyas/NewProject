@@ -13,6 +13,7 @@ export class AppComponent {
 
   isLoggedIn:boolean = false;
   isLoggedOut:boolean = false;
+  isSignIn:boolean = false;
 
   ngOnInit()
   {
@@ -24,6 +25,10 @@ export class AppComponent {
 
     this._loginService.isUserLoggedOut$.subscribe((data:boolean)=>{
       this.isLoggedOut = data;
+    })
+
+    this._loginService.isRegister$.subscribe((data:boolean)=>{
+      this.isSignIn = data;
     })
   }
 

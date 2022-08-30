@@ -1,3 +1,4 @@
+import { EventListenerFocusTrapInertStrategy } from '@angular/cdk/a11y';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -15,7 +16,9 @@ export class LoginComponent implements OnInit {
   isLoggedIn: boolean = false
   isSignup: boolean = false;
   users: any[] = [];
-  username:string = ''
+  username:string = '';
+  isRegister:boolean = false;
+
 
   validate() {
     this.isLoggedIn = this.loginService.login(this.email, this.password);
@@ -31,7 +34,19 @@ export class LoginComponent implements OnInit {
       //sending boolean value to appcomponent to show navbar
       this.loginService.isUserLoggedIn$.next(this.isLoggedIn)
       
-      this._route.navigate(['/home']);
+      this.isRegister = true;
+      this.loginService.isRegister$.next(this.isRegister)
+      
+      if(this.isRegister){
+        this._route.navigate(['/home']);
+      }
+      else{
+        this._route.navigate(['/'])
+      }
+      
+      
+    
+      
     }
     console.log(this.isLoggedIn);
   }

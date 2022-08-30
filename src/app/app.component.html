@@ -5,6 +5,6 @@
       -->
 
 <app-navbar *ngIf = "isLoggedIn"></app-navbar>
-<!-- <app-login *ngIf = "isLoggedOut == true && isLoggedIn==true"></app-login> -->
-<router-outlet></router-outlet>
+<app-login *ngIf = "!isLoggedIn"></app-login>
+<router-outlet *ngIf = "isLoggedIn"></router-outlet>
 

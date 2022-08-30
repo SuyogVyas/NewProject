@@ -13,6 +13,7 @@ export class NavbarComponent implements OnInit {
 
   isLoggedOut: boolean = false;
   isLoggedIn: boolean = true;
+  isSignin:boolean = true;
 
   username: string = '';
   ngOnInit() {
@@ -25,14 +26,16 @@ export class NavbarComponent implements OnInit {
     })
     console.log("username is " + this.username)
 
-
+    
   }
 
   logout() {
     this.isLoggedOut = true
     this.isLoggedIn = false;
+    this.isSignin = false;
     this._loginService.isUserLoggedOut$.next(this.isLoggedOut)
     this._loginService.isUserLoggedIn$.next(this.isLoggedIn)
+    this._loginService.isRegister$.next(this.isSignin)
     this._route.navigate(['/'])
   }
 }
