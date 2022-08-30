@@ -1,0 +1,85 @@
+<!-- <form>
+    <label>FirstName</label>
+    <input type = "text" name = "fname" value = "{{firstName}}"><br><br>
+
+    <label>MiddleName</label>
+    <input type = "text" name = "mname" value = "{{employeeList[0].MiddleName}}"><br><br>
+    <label>LastName</label>
+    <input type = "text" name = "lname" value = "{{employeeList[0].LastName}}"><br><br>
+    <label>Age</label>
+    <input type = "text" name = "age" value = "{{employeeList[0].age}}"><br><br>
+
+    <label>Gender</label>
+    <input type = "text" name = "gender" value = "{{employeeList[0].gender}}"><br><br>
+</form> -->
+
+  <div class="container">
+
+    <div class = "row">
+      <div class = "col-md-1"></div>
+      <div class= "col-md-11"><h1>Edit Employee</h1></div>
+    </div>
+
+      <div class = "row">
+        <div class = "col-md-1"></div>
+        <div class = "col-md-3">
+      <mat-form-field appearance="fill">
+          <mat-label>FirstName</mat-label>
+          <input matInput value = "{{employeeList.FirstName}}">
+        </mat-form-field>
+      </div>
+
+      <div class = "col-md-3">
+        <mat-form-field appearance="fill">
+          <mat-label>MiddleName</mat-label>
+          <input matInput value = "{{employeeList.MiddleName}}">
+        </mat-form-field>
+      </div>
+      
+      <div class = "col-md-3">
+        <mat-form-field appearance="fill">
+          <mat-label>LastName</mat-label>
+          <input matInput value = "{{employeeList.LastName}}">
+        </mat-form-field>
+      </div>
+      </div>
+    
+
+      <div class = "row">
+        <div class = "col-md-1"></div>
+        <div class = "col-md-3">
+        <mat-form-field appearance="fill">
+          <mat-label>Age</mat-label>
+          <input matInput value = "{{employeeList.age}}">
+        </mat-form-field>
+      </div>
+      
+      <div class = "col-md-3">
+        <mat-form-field appearance="fill">
+          <mat-label>Gender</mat-label>
+          <input matInput value = "{{employeeList.gender}}">
+        </mat-form-field>
+      </div>
+
+      <div class = "col-md-3">
+        <mat-form-field appearance="fill">
+          <mat-label>City</mat-label>
+          <input matInput value = "{{employeeList.city}}">
+        </mat-form-field>
+      </div>
+      </div>
+        <div class = "row">
+        <div class = "col-md-1"></div>  
+        <div class = "col-md-1">
+        <button mat-raised-button color="accent" (click) = "openDialog()">Update</button>
+      </div>
+      <div class = "col-md-10">
+        <button mat-raised-button color="primary" routerLink = "/employee">Return to Employee</button>
+      </div>
+    </div>
+    </div>
+    
+
+
+
+

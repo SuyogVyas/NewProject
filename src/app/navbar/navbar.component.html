@@ -1,6 +1,8 @@
 <ul>
-    <li><a class="active"  href="#" routerLink = "home" >Home</a></li>
-    <li><a href="#" routerLink = "logout">Logout</a></li>
-    <li><a href="#" routerLink = "/employee">Employee</a></li>
-  </ul>
+    <li><a class="active"  href="#" routerLink = "/home" >Home</a></li>
+    <li style="float:right; cursor: pointer;"><a (click)="logout()" >Logout</a></li>
+    <li style="float:right" class = "name">{{username}}</li>
+    <li ><a href="#" routerLink = "/employee">Employee</a></li>
+    <li><a href="#" routerLink = "/product">Product</a></li>
+</ul>
   

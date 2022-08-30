@@ -21,7 +21,7 @@
 
     <ng-container matColumnDef="Details">
         <th mat-header-cell *matHeaderCellDef> Details </th>
-        <td mat-cell *matCellDef="let element"><button mat-raised-button color="primary" (click) = "navigate(element)">View</button><button mat-raised-button color="warn" (click) = "editpage(element)">Edit</button><button mat-raised-button color="accent" (click) = "deletePage(element)">Delete</button></td>
+        <td mat-cell *matCellDef="let element"><button mat-raised-button class = "view" (click) = "navigate(element)">View</button><button mat-raised-button color="primary" (click) = "editpage(element)">Edit</button><button mat-raised-button class="delete" (click) = "deletePage(element)">Delete</button></td>
         
       </ng-container>
 

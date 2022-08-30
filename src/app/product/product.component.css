@@ -1,0 +1,24 @@
+table {
+    width: 80%;
+    margin-top: 2%;
+  }
+
+th{
+  font-size: medium;
+}
+
+
+
+.view{
+  background-color:green;
+  color:white;
+  margin-right: 3px;
+}
+
+
+
+.edit{
+  background-color: blue;
+  color: white;
+  margin-right: 3px;
+}

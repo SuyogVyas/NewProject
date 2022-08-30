@@ -3,3 +3,21 @@ table {
     margin-top: 1%;
     margin-left: 10%;
   }
+
+.view{
+  background-color:green;
+  color:white;
+  margin-right: 5px;
+}
+
+.delete{
+  background-color: red;
+  color: white;
+  margin-left:5px;
+}
+
+.edit{
+  background-color: blue;
+  color: white;
+  margin-right: 5px;
+}

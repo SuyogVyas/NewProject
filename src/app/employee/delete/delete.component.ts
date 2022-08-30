@@ -2,9 +2,9 @@ import { Dialog } from '@angular/cdk/dialog';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
-import { DeleteDialogueComponent } from '../dialogue/deleteDialogue.component';
-import { DialogueComponent } from '../dialogue/dialogue.component';
-import { EmployeeService } from '../Services/employee/employee.service';
+import { DeleteDialogueComponent } from 'src/app/dialogue/deleteDialogue.component';
+import { EmpDataService } from 'src/app/Services/data/emp-data.service';
+import { EmployeeService } from 'src/app/Services/employee/employee.service';
 
 @Component({
   selector: 'app-delete',
@@ -14,16 +14,18 @@ import { EmployeeService } from '../Services/employee/employee.service';
 export class DeleteComponent implements OnInit {
 
   firstName:string|null = '';
-  employeeList:any[] = [];
+  employeeList:any;
 
   
 
   constructor(private _route:ActivatedRoute, private _empService:EmployeeService,
-    private dialog:MatDialog,) { }
+    private dialog:MatDialog,private _empDataService:EmpDataService) { }
 
   ngOnInit(): void {
     this.firstName = this._route.snapshot.paramMap.get('name');
-    this.employeeList = this._empService.getSelectedData(this.firstName);
+    this._empService.getSelectedData(this.firstName).subscribe((data)=>{
+      this.employeeList = data
+    })
     
   }
 

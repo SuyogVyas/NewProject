@@ -9,30 +9,44 @@ import { EmployeeService } from '../Services/employee/employee.service';
 })
 export class EmployeeComponent implements OnInit {
 
-  employeeList:any[] = [];
-  
-  displayedColumns = ['FirstName','MiddleName','LastName','Details']
+  employeeList: any[] = [];
 
-  constructor(private _empService:EmployeeService,private _route:Router) { }
+  displayedColumns = ['FirstName', 'MiddleName', 'LastName', 'Details']
 
-  ngOnInit(): void {
-    this.employeeList = this._empService.getEmployeeData();
+  constructor(private _empService: EmployeeService,
+    private _route: Router,
+  ) { }
+
+  ngOnInit(): void{
+    
+
+    //To get data in normal way
+    // this.employeeList = this._empService.getEmployeeData();
+
+    //To get data in observable way
+    this._empService.getEmpByApi().subscribe((empdata) => {
+      this.employeeList = empdata
+      console.log(this.employeeList)
+    })
+
+    
   }
 
-  navigate(emp:any)
-  {
-    this._route.navigate(['/view',emp.FirstName]);
+
+  navigate(emp: any) {
+    this._route.navigate(['/view', emp.FirstName]);
   }
 
-  editpage(emp:any)
-  {
-    this._route.navigate(['/edit',{'name':emp.FirstName}]);
+  editpage(emp: any) {
+    
+    this._route.navigate(['/edit', { 'name': emp.FirstName }]);
   }
 
-  deletePage(emp:any)
-  {
-    this._route.navigate(['/delete',emp.FirstName],{
-      queryParams:{'name':emp.FirstName,'gender':emp.gender}, queryParamsHandling:'merge'
+  deletePage(emp: any) {
+    this._route.navigate(['/delete', emp.FirstName], {
+      queryParams: { 'name': emp.FirstName, 'gender': emp.gender }, queryParamsHandling: 'merge'
     });
   }
+
+  
 }

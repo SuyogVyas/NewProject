@@ -6,6 +6,7 @@ import { DashboardModule } from '../dashboard/dashboard.module';
 import { RegistrationModule } from '../registration/registration.module';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { MaterialModule } from '../material/material.module';
 
 
 
@@ -18,7 +19,8 @@ import { RouterModule } from '@angular/router';
     FormsModule,
     DashboardModule,
     RouterModule,
-    RegistrationModule 
+    RegistrationModule,
+    MaterialModule
    
    
   ],

@@ -33,7 +33,7 @@ export class RegistrationComponent implements OnInit {
   }
 
   backToSignIn(){
-    this._route.navigate(['/login'])
+    this._route.navigate(['login'])
   }
 
 }

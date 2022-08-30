@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { EmployeeComponent } from '../employee/employee.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
+import { NavbarModule } from '../navbar/navbar.module';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import {MatButtonModule} from '@angular/material/button';
   imports: [
     CommonModule,
     MatTableModule,
-    MatButtonModule
+    MatButtonModule,
+    NavbarModule
   ],
   exports:[
     EmployeeComponent

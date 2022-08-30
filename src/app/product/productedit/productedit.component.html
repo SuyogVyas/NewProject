@@ -1,0 +1,123 @@
+
+
+<form [formGroup]="productForm" (ngSubmit)="submit()">
+  <div class="container">
+
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-11">
+        <h1>Edit Product</h1>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-3">
+        <mat-form-field appearance="fill">
+          <mat-label>ProductName</mat-label>
+          <input formControlName="productname" matInput value="{{productList.productname}}">
+          <mat-error
+            *ngIf="productForm.controls['productname']!.errors!=null && productForm.controls['productname']!.errors!['required']">
+            <span>product name is required</span>
+          </mat-error>
+          <mat-error
+            *ngIf="productForm.controls['productname']!.errors!=null && productForm.controls['productname']!.errors!['nameerror']">
+            <span>product name is not valid!</span>
+          </mat-error>
+        </mat-form-field>
+
+      </div>
+
+      <div class="col-md-3">
+        <mat-form-field appearance="fill">
+          <mat-label>Price</mat-label>
+          <input formControlName="price" matInput value="{{productList.price}}">
+          <mat-error
+            *ngIf="productForm.controls['price']!.errors!=null && productForm.controls['price']!.errors!['required']">
+            <span>price is required</span>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="col-md-3">
+        <mat-form-field appearance="fill">
+          <mat-label>Quantity</mat-label>
+          <input formControlName="instockquantity" matInput value="{{productList.instockquantity}}">
+          <mat-error
+            *ngIf="productForm.get('instockquantity')!.errors!=null && productForm.get('instockquantity')!.errors!['min']">
+            Quantity must be greater than 0.
+          </mat-error>
+          <mat-error
+            *ngIf="productForm.get('instockquantity')!.errors!=null && productForm.get('instockquantity')!.errors!['max']">
+            Quantity must be less than 100.
+          </mat-error>
+          <mat-error
+            *ngIf="productForm.get('instockquantity')!.errors!=null && productForm.get('instockquantity')!.errors!['required']">
+            Quantity is required.
+          </mat-error>
+        </mat-form-field>
+
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-3">
+        <mat-form-field appearance="fill">
+          <mat-label>Color</mat-label>
+          <input formControlName="color" matInput value="{{productList.color}}">
+          <mat-error
+            *ngIf="productForm.controls['color']!.errors!=null && productForm.controls['color']!.errors!['required']">
+            <span>color is required</span>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="col-md-3">
+        <mat-form-field appearance="fill">
+          <mat-label>Description</mat-label>
+          <input formControlName="description" matInput value="{{productList.description}}">
+          <mat-error
+            *ngIf="productForm.controls['description']!.errors!=null && productForm.controls['description']!.errors!['required']">
+            <span>description is required</span>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="col-md-3">
+
+        <mat-form-field appearance="fill">
+          <mat-label>Category</mat-label>
+          <select matNativeControl formControlName="category" value="{{productList.category}}">
+
+            
+            <option value="Electronics">Electronics</option>
+            <option value="Fashion">Fashion</option>
+          </select>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-11">
+        <mat-form-field appearance="fill">
+          <mat-label>Image</mat-label>
+          <input formControlName="image" matInput value="{{productList.image}}">
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-1">
+        <button type="submit" mat-raised-button color="primary">Update</button>
+
+      </div>
+      <div class="col-md-8">
+        <button mat-raised-button color="accent" routerLink="/product">Return to Product</button>
+      </div>
+    </div>
+
+  </div>
+</form>

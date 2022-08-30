@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -15,14 +15,24 @@ import { RegisterService } from './Services/registration/registration.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatTableModule} from '@angular/material/table';
 import { HomeComponent } from './home/home.component';
-import { ViewComponent } from './view/view.component';
-import { EditComponent } from './edit/edit.component';
-import { DeleteComponent } from './delete/delete.component';
+
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input'
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatDialogModule} from '@angular/material/dialog';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { EmpDataService } from './Services/data/emp-data.service';
+import { HttpClientModule } from '@angular/common/http';
+import { EmployeeComponent } from './employee/employee.component';
+import { ProductService } from './Services/product/product.service';
+import { ProductModule } from './product/product.module';
+import { ReactiveFormComponent } from './product/reactive-form/reactive-form.component';
+import { EditComponent } from './employee/edit/edit.component';
+import { DeleteComponent } from './employee/delete/delete.component';
+import { ProductviewComponent } from './product/productview/productview.component';
+import { ProducteditComponent } from './product/productedit/productedit.component';
+import { ViewComponent } from './employee/view/view.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +41,10 @@ import {MatDialogModule} from '@angular/material/dialog';
     ViewComponent,
     EditComponent,
     DeleteComponent,
+    ReactiveFormComponent,
+    ProductviewComponent,
+    ProducteditComponent,
+    
    
   ],
   imports: [
@@ -49,9 +63,13 @@ import {MatDialogModule} from '@angular/material/dialog';
     RegistrationModule,
     BrowserAnimationsModule,
     MatTableModule,
-    MatButtonModule
+    MatButtonModule,
+    HttpClientModule,
+    ProductModule,
+    HttpClientInMemoryWebApiModule.forRoot(EmpDataService),
+    ReactiveFormsModule
   ],
-  providers: [LoginService,RegisterService,EmployeeService],
+  providers: [LoginService,RegisterService,EmployeeService,EmpDataService,ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

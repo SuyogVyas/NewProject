@@ -1,0 +1,55 @@
+
+
+
+<div class = "row" style="margin-top:40px">
+    <div class = "col-md-1"></div>
+    <div class = "col-md-7">
+        <h1 style="font-weight:bold">Product Details</h1>
+    </div>
+    <div class = "col-md-4">
+        <button mat-raised-button color="primary" routerLink="/product">Back To Product</button>
+    </div>
+</div>
+<div style="margin-top:30px"></div>
+<div class = "row">
+    <div class = "col-md-1"></div>
+    <div class = "col-md-2">
+        <img src={{productList.image}} height="200px" width="200px">
+    </div>
+    <div class = "col-md-9">
+    <div class = "row">
+        <div class = "col-md-3">
+            <h2>ProductName</h2> <p>{{productList.productname}}</p>
+        </div>
+        <div class = "col-md-3">
+            <!-- <p>Price:- {{productList.price}}</p> -->
+            <h2>Price</h2>
+            <p >{{productList.price}}</p>
+        </div>
+        <div class = "col-md-3">
+            <!-- <p>Quantity:- {{productList.instockquantity}}</p> -->
+            <h2>Quantity</h2><p>{{productList.instockquantity}}</p>
+        </div>
+
+    </div>
+    <div style = "margin-top: -20px;"></div>
+    <div style = "margin-bottom: 60px;"></div>
+    <div class = "row">
+        <div class = "col-md-3">
+            <!-- <p>Colour:- {{productList.color}}</p> -->
+            <h2>Colour</h2><p>{{productList.color}}</p>
+        </div>
+        <div class = "col-md-3">
+            <!-- <p>Description:- {{productList.description}}</p> -->
+            <h2>Description</h2><p>{{productList.description}}</p>
+        </div>
+        <div class = "col-md-3">
+            <!-- <p>Category:- {{productList.category}}</p> -->
+            <h2>Category</h2><p>{{productList.category}}</p>
+        </div>
+
+    </div>
+</div>
+
+    
+</div>
