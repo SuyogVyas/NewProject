@@ -23,17 +23,17 @@ export class ProductComponent implements OnInit {
   }
 
   navigate(){
-    this._route.navigate(['/create'])
+    this._route.navigate(['/product/create'])
   }
 
   editpage(product:any){
     console.log("edit")
-    this._route.navigate(['/producteditpage',product.productcode])
+    this._route.navigate(['/product/edit',product.productcode])
   }
 
 
   viewpage(product:any){
-    this._route.navigate(['/productviewpage',product.productcode])
+    this._route.navigate(['/product/view',product.productcode])
   }
 
 }

@@ -65,7 +65,7 @@ import { ViewComponent } from './employee/view/view.component';
     MatTableModule,
     MatButtonModule,
     HttpClientModule,
-    ProductModule,
+    
     HttpClientInMemoryWebApiModule.forRoot(EmpDataService),
     ReactiveFormsModule
   ],

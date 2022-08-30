@@ -25,15 +25,18 @@ const routes: Routes = [
   {path:'home',component:HomeComponent},
   {path:'login',component:LoginComponent},
   {path:'logout',redirectTo:'login',pathMatch:'full'},
-  {path:'view/:name',component:ViewComponent},
-  {path:'edit/:name',component:EditComponent},
-  {path:'edit',component:EditComponent},
-  {path:'delete/:name',component:DeleteComponent},
-  {path:'delete',component:DeleteComponent},
-  {path:'product',component:ProductComponent},
-  {path:'create',component:ReactiveFormComponent},
-  {path:'producteditpage/:id',component:ProducteditComponent},
-  {path:'productviewpage/:id',component:ProductviewComponent}
+  {path:'employee/view/:name',component:ViewComponent},
+  {path:'employee/edit/:name',component:EditComponent},
+  {path:'employee/edit',component:EditComponent},
+  {path:'employee/delete/:name',component:DeleteComponent},
+  {path:'employee/delete',component:DeleteComponent},
+  {path:'product',
+    loadChildren:()=>import('./product/product.module').then(x=>x.ProductModule)
+  },
+  {path:'employee',
+    loadChildren:()=>import('./employee/employee.module').then(x=>x.EmployeeModule)
+  },
+  
   
 ];
 

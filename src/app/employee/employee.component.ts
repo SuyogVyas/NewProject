@@ -34,16 +34,16 @@ export class EmployeeComponent implements OnInit {
 
 
   navigate(emp: any) {
-    this._route.navigate(['/view', emp.FirstName]);
+    this._route.navigate(['/employee/view', emp.FirstName]);
   }
 
   editpage(emp: any) {
     
-    this._route.navigate(['/edit', { 'name': emp.FirstName }]);
+    this._route.navigate(['/employee/edit', { 'name': emp.FirstName }]);
   }
 
   deletePage(emp: any) {
-    this._route.navigate(['/delete', emp.FirstName], {
+    this._route.navigate(['/employee/delete', emp.FirstName], {
       queryParams: { 'name': emp.FirstName, 'gender': emp.gender }, queryParamsHandling: 'merge'
     });
   }

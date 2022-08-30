@@ -5,6 +5,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import { NavbarModule } from '../navbar/navbar.module';
 import { AppRoutingModule } from '../app-routing.module';
+import { ProductRoutingModule } from './product-routing.module';
 
 
 
@@ -17,7 +18,7 @@ import { AppRoutingModule } from '../app-routing.module';
     MatTableModule,
     MatButtonModule,
     NavbarModule,
-    AppRoutingModule
+    ProductRoutingModule
   ]
 })
 export class ProductModule { }
