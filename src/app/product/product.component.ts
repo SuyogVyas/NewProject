@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../Services/product/product.service';
 
 @Component({
@@ -13,13 +13,15 @@ export class ProductComponent implements OnInit {
   displayedColumns = ['image','productname','price','category','Actions']
 
 
-  constructor(private _productService:ProductService,private _route:Router) { }
+  constructor(private _productService:ProductService,private _route:Router,private _actroute:ActivatedRoute) { 
+    this.productList = _actroute.snapshot.data['productlist'];
+  }
 
   ngOnInit(): void {
 
-    this._productService.getProductByApi().subscribe((data)=>{
-      this.productList = data
-    })
+    // this._productService.getProductByApi().subscribe((data)=>{
+    //   this.productList = data
+    // })
   }
 
   navigate(){

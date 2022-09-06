@@ -1,7 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { UserCanDeactivateGuardService } from '../Services/employee/emp-deactivate.service';
+import { EmployeeListResolverService } from '../Services/employee/emp-resolver.service';
 import { DeleteComponent } from './delete/delete.component';
 import { EditComponent } from './edit/edit.component';
+import { EmployeeComponent } from './employee.component';
 import { ViewComponent } from './view/view.component';
 
 const routes: Routes = [
@@ -9,8 +12,9 @@ const routes: Routes = [
     {path:'',
         children:[
             {path:'view/:name',component:ViewComponent},
+            {path:'emplist',component:EmployeeComponent,resolve:{empList:EmployeeListResolverService}},
             {path:'edit/:name',component:EditComponent},
-            {path:'edit',component:EditComponent},
+            {path:'edit',component:EditComponent,canDeactivate:[UserCanDeactivateGuardService]},
             {path:'delete/:name',component:DeleteComponent},
             {path:'delete',component:DeleteComponent}
         ]}

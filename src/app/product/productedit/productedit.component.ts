@@ -35,12 +35,18 @@ export class ProducteditComponent implements OnInit {
     this.productid = this._route.snapshot.paramMap.get('id')
     this._productService.getProductById(this.productid).subscribe((item)=>{
       this.productList = item
-      console.log(this.productList)
+      // console.log(this.productList)
     })
   }
 
   submit(){
-    console.log(this.productForm)
+    // console.log("productform")
+    // console.log(this.productForm)
+
+    // console.log("productform.controls")
+    // console.log(this.productForm.controls['productname'].value)
+
+    this._productService.productSubject$.next(this.productForm.controls['productname'].value)
   }
 
   openDialog(){

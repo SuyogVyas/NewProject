@@ -34,6 +34,13 @@ import { ProductviewComponent } from './product/productview/productview.componen
 import { ProducteditComponent } from './product/productedit/productedit.component';
 import { ViewComponent } from './employee/view/view.component';
 
+import { UserCanDeactivateGuardService } from './Services/employee/emp-deactivate.service';
+import { EmployeeListResolverService } from './Services/employee/emp-resolver.service';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { ProductListResolveService } from './Services/product/product-resolver.service';
+import { ProductCanActivateServiceGuard } from './Services/product/product-canactivate.service';
+import { CardModel } from './model/cardmodel';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,6 +51,8 @@ import { ViewComponent } from './employee/view/view.component';
     ReactiveFormComponent,
     ProductviewComponent,
     ProducteditComponent,
+    PagenotfoundComponent,
+  
     
    
   ],
@@ -69,7 +78,9 @@ import { ViewComponent } from './employee/view/view.component';
     HttpClientInMemoryWebApiModule.forRoot(EmpDataService),
     ReactiveFormsModule
   ],
-  providers: [LoginService,RegisterService,EmployeeService,EmpDataService,ProductService],
+  providers: [LoginService,RegisterService,EmployeeService,EmpDataService,ProductService
+  ,ProductCanActivateServiceGuard,UserCanDeactivateGuardService,EmployeeListResolverService,
+  ProductListResolveService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -5,6 +5,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
 import { NavbarModule } from '../navbar/navbar.module';
 import { EmployeeRoutingModule } from './employee-routing.module';
+import { FormsModule, NgForm } from '@angular/forms';
 
 
 @NgModule({
@@ -16,7 +17,9 @@ import { EmployeeRoutingModule } from './employee-routing.module';
     MatTableModule,
     MatButtonModule,
     NavbarModule,
-    EmployeeRoutingModule
+    EmployeeRoutingModule,
+    FormsModule,
+    
   ],
   exports:[
     EmployeeComponent
