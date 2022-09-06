@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { DialogueComponent } from 'src/app/dialogue/dialogue.component';
@@ -12,6 +13,7 @@ import { EmployeeService } from 'src/app/Services/employee/employee.service';
 })
 export class EditComponent implements OnInit {
 
+  @ViewChild('userForm') createUserForm!:NgForm
   firstName:string|null = '';
   employeeList:any;
   constructor(private _route:ActivatedRoute, private _empService:EmployeeService,
@@ -26,6 +28,10 @@ export class EditComponent implements OnInit {
     console.log(this.employeeList);
   }
 
+  saveDetails(form:NgForm)
+  {
+    
+  }
   
   openDialog(){
     this.dialog.open(DialogueComponent);

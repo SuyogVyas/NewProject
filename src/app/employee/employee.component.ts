@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Route, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+
 import { EmployeeService } from '../Services/employee/employee.service';
 
 @Component({
@@ -11,25 +12,31 @@ export class EmployeeComponent implements OnInit {
 
   employeeList: any[] = [];
 
+
   displayedColumns = ['FirstName', 'MiddleName', 'LastName', 'Details']
 
   constructor(private _empService: EmployeeService,
-    private _route: Router,
-  ) { }
+    private _route: Router, private _actroute: ActivatedRoute) 
+    {
+   
+  }
 
-  ngOnInit(): void{
-    
+  ngOnInit(): void {
+
 
     //To get data in normal way
     // this.employeeList = this._empService.getEmployeeData();
 
     //To get data in observable way
-    this._empService.getEmpByApi().subscribe((empdata) => {
-      this.employeeList = empdata
-      console.log(this.employeeList)
-    })
-
+    // this._empService.getEmpByApi().subscribe((empdata) => {
+    //   this.employeeList = empdata
+    //   console.log(this.employeeList)
+    // })
     
+
+    this.employeeList = this._actroute.snapshot.data['empList']
+    console.log(this.employeeList+"resolver")
+
   }
 
 
@@ -38,7 +45,7 @@ export class EmployeeComponent implements OnInit {
   }
 
   editpage(emp: any) {
-    
+
     this._route.navigate(['/employee/edit', { 'name': emp.FirstName }]);
   }
 
@@ -48,5 +55,5 @@ export class EmployeeComponent implements OnInit {
     });
   }
 
-  
+
 }

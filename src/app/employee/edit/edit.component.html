@@ -1,18 +1,5 @@
-<!-- <form>
-    <label>FirstName</label>
-    <input type = "text" name = "fname" value = "{{firstName}}"><br><br>
 
-    <label>MiddleName</label>
-    <input type = "text" name = "mname" value = "{{employeeList[0].MiddleName}}"><br><br>
-    <label>LastName</label>
-    <input type = "text" name = "lname" value = "{{employeeList[0].LastName}}"><br><br>
-    <label>Age</label>
-    <input type = "text" name = "age" value = "{{employeeList[0].age}}"><br><br>
-
-    <label>Gender</label>
-    <input type = "text" name = "gender" value = "{{employeeList[0].gender}}"><br><br>
-</form> -->
-
+<form #userForm="ngForm" (ngsubmit)="saveDetails(userForm)">
   <div class="container">
 
     <div class = "row">
@@ -25,21 +12,21 @@
         <div class = "col-md-3">
       <mat-form-field appearance="fill">
           <mat-label>FirstName</mat-label>
-          <input matInput value = "{{employeeList.FirstName}}">
+          <input matInput value = "{{employeeList.FirstName}}" [(ngModel)]="employeeList.FirstName" name="fname" #fname="ngModel">
         </mat-form-field>
       </div>
 
       <div class = "col-md-3">
         <mat-form-field appearance="fill">
           <mat-label>MiddleName</mat-label>
-          <input matInput value = "{{employeeList.MiddleName}}">
+          <input matInput value = "{{employeeList.MiddleName}}" [(ngModel)]= "employeeList.MiddleName" name="middle" #mname="ngModel">
         </mat-form-field>
       </div>
       
       <div class = "col-md-3">
         <mat-form-field appearance="fill">
           <mat-label>LastName</mat-label>
-          <input matInput value = "{{employeeList.LastName}}">
+          <input matInput value = "{{employeeList.LastName}}"  [(ngModel)]="employeeList.LastName" name="last" #lname ="ngModel">
         </mat-form-field>
       </div>
       </div>
@@ -50,21 +37,21 @@
         <div class = "col-md-3">
         <mat-form-field appearance="fill">
           <mat-label>Age</mat-label>
-          <input matInput value = "{{employeeList.age}}">
+          <input matInput value = "{{employeeList.age}}" [(ngModel)]="employeeList.age" name="age" #age ="ngModel">
         </mat-form-field>
       </div>
       
       <div class = "col-md-3">
         <mat-form-field appearance="fill">
           <mat-label>Gender</mat-label>
-          <input matInput value = "{{employeeList.gender}}">
+          <input matInput value = "{{employeeList.gender}}" [(ngModel)]="employeeList.gender" name="gender" #gender = "ngModel">
         </mat-form-field>
       </div>
 
       <div class = "col-md-3">
         <mat-form-field appearance="fill">
           <mat-label>City</mat-label>
-          <input matInput value = "{{employeeList.city}}">
+          <input matInput value = "{{employeeList.city}}" [(ngModel)]="employeeList.city" name="city" #city = "ngModel">
         </mat-form-field>
       </div>
       </div>
@@ -79,7 +66,7 @@
     </div>
     </div>
     
-
+  </form>
 
 
 

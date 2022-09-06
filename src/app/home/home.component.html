@@ -1,2 +1,28 @@
 
 <p>home works!</p>
+<div class = "row">
+    <div class = "col-md-6">
+        <div class="card" style="width: 18rem;" *ngFor="let obj of cardArray">
+    
+            <div class="card-body">
+              <h5 class="card-title">Card title {{obj.name}}</h5>
+              <!-- <p class="card-text">{{obj.salary}}</p> -->
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+    </div>
+    <div class = "col-md-6">
+        <form [formGroup]="practiceform" (ngSubmit)="submit()">
+            <mat-form-field appearance="fill">
+                <mat-label>ProductName</mat-label>
+                <input formControlName="productname" matInput value="">
+                
+              </mat-form-field>
+              <div class="col-md-1">
+                <button type="submit" mat-raised-button color="primary">Update</button>
+        
+              </div>
+        </form>
+
+    </div>
+</div>

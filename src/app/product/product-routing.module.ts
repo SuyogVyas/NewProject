@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ProductCanActivateServiceGuard } from '../Services/product/product-canactivate.service';
+import { ProductListResolveService } from '../Services/product/product-resolver.service';
 import { ProductComponent } from './product.component';
 import { ProducteditComponent } from './productedit/productedit.component';
 import { ProductviewComponent } from './productview/productview.component';
@@ -11,10 +13,11 @@ const routes: Routes = [
     {
         path: '',
         children: [
-            { path: '', component: ProductComponent },
+           
+            {path:'productlist',component:ProductComponent,resolve:{productlist:ProductListResolveService}},
             { path: 'create', component: ReactiveFormComponent },
             { path: 'edit/:id', component: ProducteditComponent },
-            { path: 'view/:id', component: ProductviewComponent }
+            { path: 'view/:id', component: ProductviewComponent,canActivate:[ProductCanActivateServiceGuard] }
         ]
     }
 
